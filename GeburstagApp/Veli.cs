@@ -17,5 +17,6 @@ namespace GeburstagApp
         public string veli_Soyisim { get; set; }
         public string veli_DogumTarihi { get; set; }
         public string veli_YakinlikDerecesi { get; set; }
+        public string veli_GSM { get; set; }
     }
 }

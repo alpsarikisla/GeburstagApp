@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>birthday-cake.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,6 +54,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hakkimizda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hakkimizda.Designer.cs">
+      <DependentUpon>Hakkimizda.cs</DependentUpon>
     </Compile>
     <Compile Include="OgreciIsleri.cs">
       <SubType>Form</SubType>
@@ -74,8 +83,17 @@
     <Compile Include="VeliIslemleri.Designer.cs">
       <DependentUpon>VeliIslemleri.cs</DependentUpon>
     </Compile>
+    <Compile Include="YaklasanDogumGunleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YaklasanDogumGunleri.Designer.cs">
+      <DependentUpon>YaklasanDogumGunleri.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hakkimizda.resx">
+      <DependentUpon>Hakkimizda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OgreciIsleri.resx">
       <DependentUpon>OgreciIsleri.cs</DependentUpon>
@@ -88,12 +106,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="VeliEkle.resx">
       <DependentUpon>VeliEkle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VeliIslemleri.resx">
       <DependentUpon>VeliIslemleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YaklasanDogumGunleri.resx">
+      <DependentUpon>YaklasanDogumGunleri.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -109,8 +131,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="birthday-cake.ico" />
     <Content Include="Images\birthday-cake.ico" />
     <Content Include="Images\birthday-cake.png" />
+    <Content Include="Images\MainImage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

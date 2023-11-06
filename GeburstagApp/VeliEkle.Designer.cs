@@ -38,30 +38,34 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtp_dogumTarihi = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.mtb_GSM = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.mtb_GSM);
             this.groupBox1.Controls.Add(this.btn_Ekle);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.tb_soyisim);
             this.groupBox1.Controls.Add(this.tb_yakinlik);
             this.groupBox1.Controls.Add(this.tb_isim);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dtp_dogumTarihi);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(370, 174);
+            this.groupBox1.Size = new System.Drawing.Size(370, 200);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Veli Bilgileri";
             // 
             // btn_Ekle
             // 
-            this.btn_Ekle.Location = new System.Drawing.Point(219, 132);
+            this.btn_Ekle.Location = new System.Drawing.Point(219, 161);
             this.btn_Ekle.Name = "btn_Ekle";
             this.btn_Ekle.Size = new System.Drawing.Size(118, 23);
             this.btn_Ekle.TabIndex = 4;
@@ -72,7 +76,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 109);
+            this.label3.Location = new System.Drawing.Point(13, 141);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 13);
             this.label3.TabIndex = 3;
@@ -80,7 +84,7 @@
             // 
             // tb_soyisim
             // 
-            this.tb_soyisim.Location = new System.Drawing.Point(113, 83);
+            this.tb_soyisim.Location = new System.Drawing.Point(113, 85);
             this.tb_soyisim.Name = "tb_soyisim";
             this.tb_soyisim.Size = new System.Drawing.Size(224, 20);
             this.tb_soyisim.TabIndex = 2;
@@ -94,7 +98,7 @@
             // 
             // tb_isim
             // 
-            this.tb_isim.Location = new System.Drawing.Point(113, 59);
+            this.tb_isim.Location = new System.Drawing.Point(113, 60);
             this.tb_isim.Name = "tb_isim";
             this.tb_isim.Size = new System.Drawing.Size(224, 20);
             this.tb_isim.TabIndex = 2;
@@ -128,19 +132,36 @@
             // 
             // dtp_dogumTarihi
             // 
-            this.dtp_dogumTarihi.Location = new System.Drawing.Point(113, 106);
+            this.dtp_dogumTarihi.Location = new System.Drawing.Point(113, 135);
             this.dtp_dogumTarihi.Name = "dtp_dogumTarihi";
             this.dtp_dogumTarihi.Size = new System.Drawing.Size(224, 20);
             this.dtp_dogumTarihi.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 113);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Cep Telefonu=";
+            // 
+            // mtb_GSM
+            // 
+            this.mtb_GSM.Location = new System.Drawing.Point(113, 110);
+            this.mtb_GSM.Mask = "(999) 000-0000";
+            this.mtb_GSM.Name = "mtb_GSM";
+            this.mtb_GSM.Size = new System.Drawing.Size(224, 20);
+            this.mtb_GSM.TabIndex = 5;
             // 
             // VeliEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 205);
+            this.ClientSize = new System.Drawing.Size(396, 241);
             this.Controls.Add(this.groupBox1);
-            this.MaximumSize = new System.Drawing.Size(412, 244);
-            this.MinimumSize = new System.Drawing.Size(412, 244);
+            this.MaximumSize = new System.Drawing.Size(412, 280);
+            this.MinimumSize = new System.Drawing.Size(412, 280);
             this.Name = "VeliEkle";
             this.Text = "VeliEkle";
             this.groupBox1.ResumeLayout(false);
@@ -161,5 +182,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtp_dogumTarihi;
+        private System.Windows.Forms.MaskedTextBox mtb_GSM;
+        private System.Windows.Forms.Label label5;
     }
 }
