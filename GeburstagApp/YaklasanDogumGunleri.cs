@@ -23,6 +23,7 @@ namespace GeburstagApp
         {
             label1.Text = DateTime.Now.ToShortDateString();
             GridDoldur();
+            GridDoldurOgrenci();
         }
         private void GridDoldur()
         {
@@ -65,6 +66,43 @@ namespace GeburstagApp
                 dgv_yaklasanDogumGunleri.Columns[5].Width = 150;
 
                 dgv_yaklasanDogumGunleri.Rows.Add(row.ToArray());
+            }
+        }
+
+        private void GridDoldurOgrenci()
+        {
+            dgvOgrenciler.Rows.Clear();
+            dgvOgrenciler.ColumnCount = 4;
+            dgvOgrenciler.Columns[0].Name = "Okul No";
+            dgvOgrenciler.Columns[1].Name = "İsim";
+            dgvOgrenciler.Columns[2].Name = "Soyisim";
+            dgvOgrenciler.Columns[3].Name = "Doğum Tarihi";
+
+
+            SqlConnection con = new SqlConnection(@"Data Source=mssql01.trwww.com;Initial Catalog=veksisbu_GeburstagDB;Persist Security Info=True;User ID=gebAdmn;Password=?Nc)4i5n??*");
+            SqlCommand cmd = con.CreateCommand();
+
+            cmd.CommandText = "DECLARE @InNextDays INT; SET @InNextDays = 3; SELECT OkulNo, Isim, Soyisim, DogumTarihi FROM Ogrenciler WHERE DATEADD( Year, DATEPART( Year, GETDATE()) - DATEPART( Year, DogumTarihi), DogumTarihi) BETWEEN CONVERT( DATE, GETDATE()) AND CONVERT( DATE, GETDATE() + @InNextDays);";
+            cmd.Parameters.Clear();
+            con.Open();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                ArrayList row = new ArrayList();
+                row.Add(reader.GetString(0));
+
+                row.Add(reader.GetString(1));
+                dgvOgrenciler.Columns[1].Width = 150;
+
+                row.Add(reader.GetString(2));
+                dgvOgrenciler.Columns[2].Width = 150;
+
+                row.Add(reader.GetDateTime(3).ToShortDateString());
+                dgvOgrenciler.Columns[3].Width = 150;
+
+                dgvOgrenciler.Rows.Add(row.ToArray());
+
             }
         }
     }

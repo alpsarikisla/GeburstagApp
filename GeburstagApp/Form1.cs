@@ -91,12 +91,16 @@ namespace GeburstagApp
             SqlConnection con = new SqlConnection(@"Data Source=mssql01.trwww.com;Initial Catalog=veksisbu_GeburstagDB;Persist Security Info=True;User ID=gebAdmn;Password=?Nc)4i5n??*");
             SqlCommand cmd = con.CreateCommand();
 
-            //cmd.CommandText = "DECLARE @InNextDays INT; SET @InNextDays = 3; SELECT  V.ID,V.Isim, V.Soyisim, V.DogumTarihi, V.YakinlikDerecesi, O.Isim +' '+ O.Soyisim FROM Veliler AS V JOIN Ogrenciler AS O ON V.Ogrenci_ID = O.OkulNo WHERE DATEADD( Year, DATEPART( Year, GETDATE()) - DATEPART( Year, V.DogumTarihi), V.DogumTarihi) BETWEEN CONVERT( DATE, GETDATE()) AND CONVERT( DATE, GETDATE() + @InNextDays);";
             cmd.CommandText = "DECLARE @InNextDays INT; SET @InNextDays = 3; SELECT COUNT(*) FROM Veliler AS V JOIN Ogrenciler AS O ON V.Ogrenci_ID = O.OkulNo WHERE DATEADD( Year, DATEPART( Year, GETDATE()) - DATEPART( Year, V.DogumTarihi), V.DogumTarihi) BETWEEN CONVERT( DATE, GETDATE()) AND CONVERT( DATE, GETDATE() + @InNextDays);";
             cmd.Parameters.Clear();
             con.Open();
-            int sayi = Convert.ToInt32(cmd.ExecuteScalar());
-            toolStripStatusLabel1.Text = "Doğum günü yaklaşan veli sayısı = " + sayi;
+            int velisayi = Convert.ToInt32(cmd.ExecuteScalar());
+
+            cmd.CommandText = "DECLARE @InNextDays INT; SET @InNextDays = 3; SELECT COUNT(*) FROM Ogrenciler  WHERE DATEADD( Year, DATEPART( Year, GETDATE()) - DATEPART( Year, DogumTarihi), DogumTarihi) BETWEEN CONVERT( DATE, GETDATE()) AND CONVERT( DATE, GETDATE() + @InNextDays);";
+            cmd.Parameters.Clear();
+            int OgrenciSayi = Convert.ToInt32(cmd.ExecuteScalar());
+
+            toolStripStatusLabel1.Text = "Doğum günü yaklaşan veli sayısı = " + velisayi + " Öğrenci Sayısı = " + OgrenciSayi;
         }
 
         private void hakkımızdaToolStripMenuItem_Click(object sender, EventArgs e)
